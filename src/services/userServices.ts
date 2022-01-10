@@ -100,7 +100,7 @@ export async function checkRequestStatus(appId:string){
     if (!token) {
         return null;
     }
-    http.setToken("x-app-token", appId);
+    http.setToken("x-app-token", "8fb59469-8269-4d82-b48b-d4cc1c3a0a5c");
     http.setToken("x-auth-token", token);
-    return await http.get(`${API_ADDRESS}/auth/signinwith/req/status`);
+    return await http.get(`${API_ADDRESS}/auth/signinwith/req/status/${appId}`);
 }

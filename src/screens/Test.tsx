@@ -141,22 +141,25 @@ function RenderQrCode(props:any) {
 
 //chekcing the request status every 5 seconds
     
-const resolver=async()=>{
-  let res:any = await checkRequestStatus("8fb59469-8269-4d82-b48b-d4cc1c3a0a5c");
-  if(res.status===200){
-toast.success("Login Successful");
-localStorage.setItem("token",JSON.stringify(res.data.token));
-console.log(res.data);  
-}
-}
+const resolver = async () => {
+	try {
+		let res: any = await checkRequestStatus(props.qrCode.id);
+		if (res.status === 203) {
+			toast.success("Login Successful");
+			localStorage.setItem("token", JSON.stringify(res.data.token));
+			console.log(res.data);
+		}
+	} catch (err: any) {
+		console.log(err);
+		toast.error(err.response.data);
+	}
+};
 
-    React.useEffect(() => {
-        const timer = setTimeout(() => {
-            resolver();
-         
-        }, 5000);
-        return () => clearTimeout(timer);
-    }, []);
+const timer = setInterval(resolver, 5000);
+React.useEffect(() => {
+	return () => clearTimeout(timer);
+	// eslint-disable-next-line
+}, []);
 
 
 
