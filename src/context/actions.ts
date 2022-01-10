@@ -1,0 +1,8 @@
+export const TOGGLE_CONTACT_MODAL = "TOGGLE_CONTACT_MODAL"
+
+export const SET_LOADING = "SET_LOADING"
+export const SET_LOADING_TEXT = "SET_LOADING_TEXT"
+
+export const SET_AVATAR_SEED = 'SET_AVATAR_SEED';
+export const SET_DARK_MODE = 'SET_DARK_MODE';
+export const SET_ERROR = "SET_ERROR"
