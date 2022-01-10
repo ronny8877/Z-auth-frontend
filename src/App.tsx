@@ -16,17 +16,18 @@ import "react-toastify/dist/ReactToastify.css";
 import Profile from "./screens/Profile";
 import AppAdminPanel from "./screens/AppAdminPanel";
 import Test from "./screens/Test";
+import PrivateRoute from "./components/common/PrivtateRoutes";
 //Lazy imports
 const HomeScreen = React.lazy(() => import("./screens/HomeScreen"));
 
 function App() {
-  const { uiState } = React.useContext(UiState) as ContextType<typeof UiState>;
+	const { uiState } = React.useContext(UiState) as ContextType<typeof UiState>;
 	React.useEffect(() => {
 		AOS.init();
 
 		//eslint-disable-next-line
 	}, []);
-  return (
+	return (
 		<div className={uiState.darkMode ? "dark App" : "App"}>
 			<ToastContainer
 				position="top-right"
@@ -46,9 +47,9 @@ function App() {
 					<Route exact path="/" component={HomeScreen} />
 					<Route exact path="/login" component={LoginScreen} />
 					<Route component={Register} exact path="/register" />
-          <Route path="/user/profile" exact component={Profile} />
-          <Route path="/app/dashboard" exact component={AppAdminPanel} />
-          <Route path="/test/app" exact component={Test} />
+					<PrivateRoute path="/user/profile" exact component={Profile} />
+					<PrivateRoute path="/app/dashboard" exact component={AppAdminPanel} />
+					<PrivateRoute path="/test/app" exact component={Test} />
 					<Route component={NotFound} />
 				</Switch>
 			</Suspense>

@@ -140,13 +140,16 @@ export default function Test({}: Props): ReactElement {
 function RenderQrCode(props:any) {
 
 //chekcing the request status every 5 seconds
-    
+
 const resolver = async () => {
 	try {
+		if (props.qrCode.id === undefined) return;
 		let res: any = await checkRequestStatus(props.qrCode.id);
 		if (res.status === 203) {
 			toast.success("Login Successful");
 			localStorage.setItem("token", JSON.stringify(res.data.token));
+			clearTimeout(timer);
+			props.handleClose();
 			console.log(res.data);
 		}
 	} catch (err: any) {
@@ -156,11 +159,12 @@ const resolver = async () => {
 };
 
 const timer = setInterval(resolver, 5000);
-React.useEffect(() => {
-	return () => clearTimeout(timer);
-	// eslint-disable-next-line
-}, []);
 
+React.useEffect(() => {
+	return () => {
+		clearTimeout(timer);
+	};
+});
 
 
     return (

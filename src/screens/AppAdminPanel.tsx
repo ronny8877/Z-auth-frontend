@@ -121,42 +121,39 @@ function RenderCard(props:any){
 						{parse(props.createAvatarImage(props.data.app_name))}
 					</div>
 				</div>
-				<div className="text-white font-montserrat  text-center mt-5">
-					{ props.data.app_name}
+				<div className="dark:text-white font-montserrat  text-center mt-5">
+					{props.data.app_name}
 				</div>
-				<div className="text-white font-montserrat text-2xl text-center mt-5">
+				<div className="dark:text-white font-montserrat text-2xl text-center mt-5">
 					{props.data.alias}
 				</div>
 
-				<div className="text-white font-montserrat  text-center mt-5">
+				<div className="dark:text-white font-montserrat  text-center mt-5">
 					Created {dayjs(props.data.created_at).fromNow()}
 				</div>
-                <div className="text-white font-montserrat  text-center mt-5">
-                  {
-                        !showKey?
-                        <div className="text-white w-36 m-auto font-montserrat text-center flex flex-wrap">
-
-Secrete Key
-                      <EyeOffIcon className="cursor-pointer h-6 w-6" onClick={()=>setShowKey(!showKey)}/>
-                        </div>:
-                   <span>
-
-                    {props.data.secrete_key}
-                   </span> 
-                  }
-                </div>
+				<div className="dark:text-white font-montserrat  text-center mt-5">
+					{!showKey ? (
+						<div className="dark:text-white w-36 m-auto font-montserrat text-center flex flex-wrap">
+							Secrete Key
+							<EyeOffIcon
+								className="cursor-pointer h-6 w-6"
+								onClick={() => setShowKey(!showKey)}
+							/>
+						</div>
+					) : (
+						<span>{props.data.secrete_key}</span>
+					)}
+				</div>
 
 				<div className="flex flex-wrap gap-5">
 					<button
-					onClick={()=>props.getAppUsers(props.data._id)}
-						
+						onClick={() => props.getAppUsers(props.data._id)}
 						className="bg-blue-500 px-5 w-36 flex flex-wrap py-3 text-center mt-3 m-auto hover:bg-blue-700 text-white font-bold rounded-full"
 					>
-					
 						<span className="font-montserrat">View Users</span>
 					</button>
-                    </div>
-                    {/* 			
+				</div>
+				{/* 			
 					{user.type === "developer" ? (
 						<Link
 							to="/app/dashboard"

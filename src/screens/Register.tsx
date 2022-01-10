@@ -17,26 +17,27 @@ interface User{
     phone:string,
 
 }
-export default function Register(): ReactElement {
-    const [user,setUser]=React.useState<User>({
-        display_name:"",
-        email:"",
-        gender:"",
-        dob: Date.now().toLocaleString(),
-        repeat_password:"",
-        password:"",
-        phone:""
+export default function Register(props: any): ReactElement {
+	if (localStorage.getItem("x-auth-token")) {
+		props.history.push("/");
+	}
+	const [user, setUser] = React.useState<User>({
+		display_name: "",
+		email: "",
+		gender: "",
+		dob: Date.now().toLocaleString(),
+		repeat_password: "",
+		password: "",
+		phone: "",
+	});
+	const [isLoading, setLoading] = useState<boolean>(false);
 
-    })
-const [isLoading ,setLoading]= useState<boolean>(false)
+	const handleChange = (e: any) => {
+		setUser({ ...user, [e.target.name]: e.target.value });
+	};
 
-    const handleChange=(e:any)=>{
-        setUser({...user,[e.target.name]:e.target.value})
-    }
-  
-  const isDataValid=()=>{
-
-    const schema = Joi.object({
+	const isDataValid = () => {
+		const schema = Joi.object({
 			display_name: Joi.string().required().label("Name"),
 			email: Joi.string()
 				.email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
@@ -46,41 +47,36 @@ const [isLoading ,setLoading]= useState<boolean>(false)
 			repeat_password: Joi.ref("password"),
 			gender: Joi.string().valid("male", "female", "others").required(),
 			phone: Joi.string().min(10).required().label("Phone"),
-            //user must be atleast 18 years old
-            dob:Joi.date().required().label("Year")
+			//user must be atleast 18 years old
+			dob: Joi.date().required().label("Year"),
 		});
-    return schema.validate(user)
-   
-  }
+		return schema.validate(user);
+	};
 
-    const handelClick = async () => {
-        //toast.success("Registering...")
-        setLoading(true)
-		
-			const { error } = isDataValid();
-			if (error) {
-				toast.error(error.details[0].message);
-				setLoading(false)
-                return;
+	const handelClick = async () => {
+		//toast.success("Registering...")
+		setLoading(true);
+
+		const { error } = isDataValid();
+		if (error) {
+			toast.error(error.details[0].message);
+			setLoading(false);
+			return;
+		}
+		try {
+			let res = await register(user);
+
+			if (res.status === 201) {
+				setLoading(false);
+				toast.success("Registered Successfully");
+				window.location.href = "/login";
 			}
-            try{ 
-
-                let res=  await register(user)
-                
-                if(res.status===201){  
-                    setLoading(false);
-                    toast.success("Registered Successfully")
-                    window.location.href="/login"
-                }
-            }
-               catch(err:any){
-                   setLoading(false);
-                   console.error(err.response.data)
-                   toast.error(""+err.response.data)
-                
-            }
-		    };
-
+		} catch (err: any) {
+			setLoading(false);
+			console.error(err.response.data);
+			toast.error("" + err.response.data);
+		}
+	};
 
 	return (
 		<div className="dark:bg-dark-100 overflow-hidden min-h-screen">
