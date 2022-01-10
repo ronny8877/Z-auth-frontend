@@ -119,7 +119,7 @@ export default function Profile(): ReactElement {
 	};
 
 	return (
-		<div className="dark:bg-dark-800 min-h-screen">
+		<div className="dark:bg-dark-800 h-auto">
 			{loading ? <Loading /> : null}
 			<Navbar />
 			<br />
