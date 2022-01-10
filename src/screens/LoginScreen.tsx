@@ -67,8 +67,8 @@ const handleChange=(e:any)=>{
 				}
 			} catch (err: any) {
 				setLoading(false);
-			//	console.error(err.response.data);
-			//	toast.error("" + err.response.data);
+			console.error(err.response.data);
+			toast.error("" + err.response.data);
 			}
 		};
 
