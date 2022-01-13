@@ -1,0 +1,118 @@
+Greetings.
+My name is Sandeep Rawat  and i from from B.sc It 6sem and this is a group project presentation.
+THe group consist three members Sid and rishab and myself.
+and
+Today we are here to present our mini project. we choose to design and build an authentication system similar to sign with google feature. that we see all round the web.
+
+Deu to bad weather conditions we were unable to get together in the same vicinity and because of approaching deadline we are rerecording this video with the tools available to us.
+
+
+//The student
+//should talk about the problem statement and motivation
+
+The auth project we developed is inspired to solve a very common yet somewhat irritating issue of logging and sinning into the website. 
+As we visit different website we are usually asked to fill a tedious form providing our credentials to access the websites content . some websites make it easy where some well not so much
+and those are the problems on user side while on the other side developing a authentication system and managing users with issues like hashing passwords user verification etc makes the work 
+hard and long. so our aim of this project was to solve both of these problems to a degree .. we provide an api with robust endpoints and a ui to manage projects  to the developer to make there work 
+easy and we provide User with a simple and easy to use Ui to authenticate with the website of there choosing with just one qr code scan. and user and developers both can track there usage and control 
+it.
+
+
+The project is built using Typescript as the primary language we choose typescript because as we learned javascript in college and we wanted to further or knowledge of web devlopement .
+THe project is divided into two parts 
+
+A frontend and a Backend
+
+I was tasked with designing the backend of the app and my Teammate Siddhartha and Rishb was tasked to design the front-end of the app.
+
+First they will explain the workings and Logic behind the UI.
+/////////////Happy////////////////////////////////
+
+Respected teachers  My name is Siddharth kumar and i was tasked with styling and designing the ui for the project which include all
+ the animations all the css styling and designing the ui in tools like figma.
+ 
+The Ui uses css frameworks like Tailwind css and vanilla css which allows me to build
+  excellent features and beautiful ui in a rather short period of time.
+The site have two ui modes Dark and light mode however the logic for the Switch was written by Rishabh all the necessary css classes were designed by 
+me using tailwind css framework to ease my workload.
+The ui includes Login Page, Registration page , User Profile Page , 
+Navigation Bar, Admin Panel and Loading screen and they use Multiple custom defined color schemes that can be found in the 
+tailwind.config file. 
+ The ui is built using react so tailwind allowed me to style the pages with minimal performance impact and minimal impact on bundle size.
+
+When we started the project we had multiped choices of css framework to choose from and we choose Tailwind as // 
+ utility-first CSS framework for rapidly building custom user interfaces. It is a highly customizable, low-level CSS framework
+  that gives you all of the building blocks you need to build designs without any annoying opinionated styles you have
+   to fight to override. 
+The beauty of this thing called tailwind is it doesn’t impose design specification or how your site should look like, you simply
+ bring tiny components together to construct a user interface that is unique. What Tailwind simply does is take a ‘raw’ CSS file,
+  processes this CSS file over a configuration file, and produces an output.
+ they provide granular level of control
+ with it's utility classes instead of giving us
+ pre-baked components like bootstrap and material ui. And  now Rishab will explain the logic behind the frontend. thank
+
+ 
+ 
+ /////////////////Rishab///////////////
+
+ Greeting Myself RR and i was tasked with developing the logic for the frontend which i achieved with React js. 
+As react js helped to create Robust web apps Rather then website with multiple web pages like valonia js. 
+SInce component logic is written in Typescript instead of templates so that we can easily pass rich data 
+throughout the app and keep state management septate from dom manipulation.
+
+ As sid mentioned earlier the app have two ui modes light and dark funtion,
+ i wrote the necessarry logic and functionality to 
+swap those classes on the fly to create a seamless transition between the two with the help of conditional rendering, it is the same way conditions 
+work in JavaScript if-else conditional operator to create elements representing the current state, and let React 
+update the UI to match them. as well as including the logic for navbar open and close state.
+ 
+next thing, all the api calls to the server and displaying
+basically what i have done os that i created a local API to fetch a user token and build a mock API using Node.js that will return a user token. 
+then call that API from our login page and render the component after we successfully retrieve the token. 
+By the end of this step, we have an application with a working login page and protected pages that will only be accessible after login.
+
+and at the last  All the data returned from the server in a proper manner with error handling in mind. 
+The most exciting part was the  route handling with the help of react-router and defining the custom components from
+protected routes which allowed conditional rendering of the ui elements based on the permission user have.
+
+i would like to thank my teacher to give me this opportunity and 
+this project help me in improveing my skills and learn more about my strength and weekness. as working in front end this project gives me opportunity to 
+work with my team mates and learn about their skills and back-end by sendeep and show me path for my future steps
+thats all from my side now sandeep will explaining rest part about the backend thank you 
+   
+////////////////////////Ronnie/////////////////////////////
+
+Greeting my name is Sandeep Rawat and i was tasked with designing the Backend of the project including the Rest api and managing the databases.
+The project is completely developed in Typescript to minimize logic errors as much as possible. we decided to use express framework to handel the api calls as i already had 
+familiarity with it. the api handles all the data and logic for the project like registering the user , making new apps , creating login and sign-up sessions etc. 
+we used two databases for the project one is mongodb and the other is Firebase Realtime database. mongo db is used to store more permanent data like user records ,app databases,
+and the firebase realtime database which is used to store the data that is temporary and is used to create login sessions.
+we choose to use Firebase to create sessions as it is robust and can easily scale with our needs and unlike mongo db we do not have to create schema before hand for the objects.
+which allow us to experiment with the sessions and add features on the fly .
+And mongo db was chosen over My SQL beacuse of it has document based database with is easier to work with as instead of using the sql queries we use 
+functions provided by the monogdb  sdk to work with the database.
+The api have different routes and endpoints with different level of permissions to access as example some endpoints can only be accessed by a developer,
+some endpoints need user to be logged in and some endpoints can be accessed by both a developer and a user.
+all this work is done using different middleware written from scratch to handel the respective tasks.
+I also developed a simple Logging application from scratch for this application to log all the api calls and error for future debugging
+and the data that is sent to the server.
+the api uses json data format to communicate with the frontend and  and REST Api standers to make the communication easy and predictable.
+We also kept user privacy in mind so all the passwords are hashed in a one way encryption and the user only generally available user data is shared with  other apps 
+we use Jwt token to verify if user is authenticated and if user should have certain privileges. which also allowed us to verify the user authenticity and made our tokens tamper 
+resistant.
+I also wrote tests for the server to keep the bugs to a minium and to make sure the api is working as expected.
+Test are created using the jest testing library and use tools like super-test to test the api.
+
+
+Well that's all the time i had to explain the project backend.
+
+this project helped me in improving my understanding of Backend serevrs and databases and also in my coding skills.
+
+and now we will like to demonstrate the working of the project .
+
+  
+
+
+
+
+

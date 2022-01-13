@@ -153,18 +153,6 @@ function RenderCard(props:any){
 						<span className="font-montserrat">View Users</span>
 					</button>
 				</div>
-				{/* 			
-					{user.type === "developer" ? (
-						<Link
-							to="/app/dashboard"
-							className="bg-blue-500 px-5 w-36 flex flex-wrap py-3 text-center mt-3 m-auto hover:bg-blue-700 text-white font-bold rounded-full"
-						>
-							<span className="font-montserrat">Dashboard</span>
-						</Link>
-					) : null}
-					{/*
-					 
-				</div> */}
 			</div>
 		);
 }
